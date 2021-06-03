@@ -1,0 +1,73 @@
+{
+  "header": {
+    "rulepack_id": "54f8d7dc-94dd-437d-aace-3cd8711f834b",
+    "enabled": false
+  },
+  "rules": [
+    {
+      "type": "f44c1b5b95c8157536e2ccdcaab231fdb753d59d",
+      "model": {
+        "expandNamespaces": false,
+        "errorMarkLocation": 0,
+        "errorMarkNode": 1,
+        "root": {
+          "id": 1,
+          "children": [],
+          "value": [],
+          "attributes": [
+            {
+              "id": 2,
+              "attribute": {
+                "optionalAttribute": false,
+                "disallowed": false,
+                "name": "^\\[.*\\]$",
+                "attributeNameType": 1,
+                "attributeType": 0,
+                "attributeValue": "^\u0027[^\u0027]*\u0027$",
+                "attributeValueType": 1
+              }
+            }
+          ],
+          "tag": {
+            "disallowed": false,
+            "allowExtraAttributes": false,
+            "tagName": {
+              "nameType": 2
+            }
+          }
+        },
+        "fixes": [
+          {
+            "fixDescription": "removing databinding \u0026 pass as literal",
+            "fixes": [
+              {
+                "ft": "6480f2d7304d1261a223006b38d2df5dcac91bf1",
+                "t": {
+                  "removeValue": false,
+                  "newValue": "\"{{#sed}}s/^\u0027(.*)\u0027$/$1/g,{{#encodeString}}{{{ value }}}{{/encodeString}}{{/sed}}\"",
+                  "nodeId": 2
+                }
+              },
+              {
+                "ft": "b6771e403d486d6ae486051dd8c042a47d1221d1",
+                "t": {
+                  "newName": "{{#sed}}s/^\\[(.*)\\]$/$1/g,{{#encodeString}}{{{ name }}}{{/encodeString}}{{/sed}}",
+                  "nodeId": 2
+                }
+              }
+            ]
+          }
+        ],
+        "commonFixes": [],
+        "ruleName": "binding syntax for literals",
+        "ruleID": "6ee0e6be-0f68-42ed-97b9-e138680d3c60",
+        "disableRuleIDs": [],
+        "ruleShortDescription": "Databinding is not necessary here",
+        "ruleErrorLevel": 1,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    }
+  ],
+  "generators": []
+}

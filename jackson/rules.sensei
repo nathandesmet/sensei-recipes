@@ -1,0 +1,24 @@
+{
+  "header": {
+    "rulepack_id": "c176cc13-b2af-463c-b3c1-c694efbfe53f",
+    "enabled": false
+  },
+  "rules": [
+    {
+      "type": "947034909c9b08d0b583170e594b0eb327933231",
+      "model": {
+        "yamlCode": "search:\n  field:\n    annotation:\n      type: JsonProperty\n      parameters:\n      - value:\n          value: \u0027{{{ markedElement.name }}}\u0027\n",
+        "mver": 8,
+        "yamlQuickFixCode": "availableFixes:\n- name: Remove annotation\n  actions:\n  - rewrite:\n      to: \u0027{{{ modifiers }}} {{{ typeElement }}} {{{ name }}};\u0027\n      target: self\n",
+        "ruleName": "JsonPropertyWithoutRenaming",
+        "ruleID": "372b24fb-ed69-4b20-99ab-8a2cf97bf7f4",
+        "disableRuleIDs": [],
+        "ruleShortDescription": "@JsonProperty is not necessary here",
+        "ruleErrorLevel": 1,
+        "ruleScope": [],
+        "ruleEnabled": true
+      }
+    }
+  ],
+  "generators": []
+}

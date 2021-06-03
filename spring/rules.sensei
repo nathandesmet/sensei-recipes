@@ -1,0 +1,39 @@
+{
+  "header": {
+    "rulepack_id": "9749a85d-1f57-4a26-9f86-c7334b03f023",
+    "enabled": true
+  },
+  "rules": [
+    {
+      "type": "947034909c9b08d0b583170e594b0eb327933231",
+      "model": {
+        "yamlCode": "search:\n  method:\n    in:\n      class:\n        without:\n          annotation:\n            type: \"org.springframework.validation.annotation.Validated\"\n    parameters:\n      any:\n        annotation:\n          type:\n            reference:\n              matches: \"^javax\\\\.validation\\\\.constraints\\\\..*\"\n",
+        "mver": 6,
+        "yamlQuickFixCode": "availableFixes:\n- name: \"Add @Validated to enclosing type\"\n  actions:\n  - addAnnotation:\n      annotation: \"@org.springframework.validation.annotation.Validated\"\n      target: \"parentClass\"\n",
+        "ruleName": "Bean method validation",
+        "ruleID": "4c9dbc59-8d12-4fd8-9763-b0f16a2049b4",
+        "disableRuleIDs": [],
+        "ruleShortDescription": "The method validation feature is only enabled for beans annotated with @Validated",
+        "ruleErrorLevel": 2,
+        "ruleEnabled": true,
+        "ruleScope": []
+      }
+    },
+    {
+      "type": "947034909c9b08d0b583170e594b0eb327933231",
+      "model": {
+        "yamlCode": "search:\n  method:\n    annotation:\n      type: \"org.springframework.test.context.DynamicPropertySource\"\n    without:\n      modifier: \"static\"\n",
+        "mver": 6,
+        "yamlQuickFixCode": "availableFixes:\n- name: \"make static\"\n  actions:\n  - changeModifiers:\n      static: true\n",
+        "ruleName": "DynamicPropertySource method signature",
+        "ruleID": "95750ae2-22eb-4fb1-8dfe-cd8e2e9a743a",
+        "disableRuleIDs": [],
+        "ruleShortDescription": "DynamicPropertySource can only be applied to static methods",
+        "ruleErrorLevel": 2,
+        "ruleEnabled": true,
+        "ruleScope": []
+      }
+    }
+  ],
+  "generators": []
+}

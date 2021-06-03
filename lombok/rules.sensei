@@ -1,0 +1,24 @@
+{
+  "header": {
+    "rulepack_id": "a38852e0-003c-4060-b14b-c648fd8dae46",
+    "enabled": true
+  },
+  "rules": [
+    {
+      "type": "947034909c9b08d0b583170e594b0eb327933231",
+      "model": {
+        "yamlCode": "search:\n  field:\n    in:\n      class:\n        annotation:\n          type: \"lombok.Data\"\n    modifier: \"public\"\n",
+        "mver": 6,
+        "yamlQuickFixCode": "availableFixes:\n- name: \"change to private\"\n  actions:\n  - changeModifiers:\n      visibility: \"private\"\n- name: \"change to protected\"\n  actions:\n  - changeModifiers:\n      visibility: \"protected\"\n",
+        "ruleName": "public fields in data class",
+        "ruleID": "7dda64f2-57fc-4be4-9c2f-0ad24cc71f88",
+        "disableRuleIDs": [],
+        "ruleShortDescription": "use private fields in data classes",
+        "ruleErrorLevel": 1,
+        "ruleEnabled": true,
+        "ruleScope": []
+      }
+    }
+  ],
+  "generators": []
+}

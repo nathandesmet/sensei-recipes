@@ -1,0 +1,23 @@
+id: lombok-dataclass-publicfields
+version: 8
+metadata:
+  name: public fields in data class
+  shortDescription: use private fields in data classes
+  level: warning
+  enabled: true
+search:
+  field:
+    in:
+      typeDeclaration:
+        annotation:
+          type: lombok.Data
+    modifier: public
+availableFixes:
+- name: change to private
+  actions:
+  - changeModifiers:
+      visibility: private
+- name: change to protected
+  actions:
+  - changeModifiers:
+      visibility: protected

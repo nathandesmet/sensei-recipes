@@ -1,0 +1,18 @@
+id: tests-dynamicpropertysource
+version: 8
+metadata:
+  name: DynamicPropertySource method signature
+  shortDescription: DynamicPropertySource can only be applied to static methods
+  level: error
+  enabled: true
+search:
+  method:
+    annotation:
+      type: org.springframework.test.context.DynamicPropertySource
+    without:
+      modifier: static
+availableFixes:
+- name: make static
+  actions:
+  - changeModifiers:
+      static: true

@@ -1,0 +1,28 @@
+id: aop-bean-validation
+version: 8
+metadata:
+  name: Bean method validation
+  shortDescription: The method validation feature is only enabled for beans annotated
+    with @Validated
+  level: error
+  enabled: true
+search:
+  method:
+    in:
+      typeDeclaration:
+        without:
+          annotation:
+            type: org.springframework.validation.annotation.Validated
+    parameters:
+      any:
+        annotation:
+          type:
+            reference:
+              matches: ^javax\.validation\.constraints\..*
+            checkInheritance: true
+availableFixes:
+- name: Add @Validated to enclosing type
+  actions:
+  - addAnnotation:
+      annotation: '@org.springframework.validation.annotation.Validated'
+      target: parentClass

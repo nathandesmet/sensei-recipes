@@ -1,0 +1,20 @@
+id: unnecessary-jsonproperty-annotation
+version: 8
+metadata:
+  name: JsonPropertyWithoutRenaming
+  shortDescription: '@JsonProperty is not necessary here'
+  level: warning
+  enabled: true
+search:
+  field:
+    annotation:
+      type: JsonProperty
+      parameters:
+      - value:
+          value: '{{{ markedElement.name }}}'
+availableFixes:
+- name: Remove annotation
+  actions:
+  - rewrite:
+      to: '{{{ modifiers }}} {{{ typeElement }}} {{{ name }}};'
+      target: self

@@ -9,7 +9,7 @@
       "model": {
         "expandNamespaces": false,
         "errorMarkLocation": 0,
-        "errorMarkNode": 1,
+        "errorMarkNode": 2,
         "root": {
           "id": 1,
           "children": [],

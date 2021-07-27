@@ -1,0 +1,18 @@
+id: MethodSourceProviderShouldBeStatic
+version: 8
+metadata:
+  name: MethodSourceProviderShouldBeStatic
+  shortDescription: Methods that return a Stream of Arguments should be as static
+  level: error
+  language: java; kotlin
+  enabled: true
+search:
+  method:
+    returnType: java.util.stream.Stream<org.junit.jupiter.params.provider.Arguments>
+    without:
+      modifier: static
+availableFixes:
+- name: Make method static
+  actions:
+  - changeModifiers:
+      static: true

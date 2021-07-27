@@ -1,0 +1,27 @@
+id: inner-class-in-test-without-nested-annotation
+version: 8
+metadata:
+  name: inner-class-in-test-without-nested-annotation
+  shortDescription: Inner classes that contain tests should be marked as @Nested
+  level: error
+  language: java
+  enabled: true
+search:
+  class:
+    with:
+      child:
+        method:
+          annotation:
+            type: org.junit.jupiter.api.Test
+    in:
+      class: {}
+    without:
+      annotation:
+        type: org.junit.jupiter.api.Nested
+availableFixes:
+- name: Add @Nested
+  actions:
+  - addAnnotation:
+      annotation: '@org.junit.jupiter.api.Nested'
+  - changeModifiers:
+      static: false

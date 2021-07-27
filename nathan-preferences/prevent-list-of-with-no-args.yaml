@@ -1,0 +1,18 @@
+id: prevent-empty-lists-using-list-of
+version: 8
+metadata:
+  name: prevent-empty-lists-using-list-of
+  shortDescription: Use Collections.emptyList instead
+  level: error
+  language: java
+  enabled: true
+search:
+  methodcall:
+    argCount: 0
+    name: of
+    type: java.util.List
+availableFixes:
+- name: Change to Collections.emptyList()
+  actions:
+  - rewrite:
+      to: java.util.Collections.emptyList()

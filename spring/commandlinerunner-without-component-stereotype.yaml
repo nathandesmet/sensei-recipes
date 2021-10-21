@@ -1,0 +1,23 @@
+id: commandlinerunner_missing_component
+version: 9
+metadata:
+  name: 'CommandLineRunner: Missing component annotation'
+  shortDescription: You've probably intended to add this command line runner to the spring-context, otherwise it will not be picked up during runtime.
+  level: warning
+  language: java
+  enabled: true
+search:
+  class:
+    super:
+      name: org.springframework.boot.CommandLineRunner
+    without:
+      annotation:
+        type:
+          reference:
+            matches: org\.springframework\.stereotype\..*
+          checkInheritance: true
+availableFixes:
+- name: Add @Component
+  actions:
+  - addAnnotation:
+      annotation: '@org.springframework.stereotype.Component'
